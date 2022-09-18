@@ -1,12 +1,15 @@
-const counterBtn = document.querySelectorAll('.items__control')
-const counter = document.querySelector('[data-counter]')
+window.addEventListener('click', event => {
+    let counter;
+    
+    if(event.target.dataset.action === 'plus' || event.target.dataset.action === 'minus') {
+        counter = event.target.closest('.counter-wrapper').querySelector('[data-counter]')
+    }
 
-counterBtn.forEach(btn => {
-    btn.addEventListener('click', event => {
-        if(event.target.dataset.action === 'minus') {
-            counter.innerText === '0' ? counter.innerText = 0 : --counter.innerText
-        } else {
-            ++counter.innerText
-        }
-    })
+    if(event.target.dataset.action === 'minus') {
+        counter.innerText === '0' ? counter.innerText = 0 : --counter.innerText
+    } 
+
+    if(event.target.dataset.action === 'plus') {
+        ++counter.innerText
+    }
 })
