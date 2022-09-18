@@ -6,7 +6,7 @@ window.addEventListener('click', event => {
     }
 
     if(event.target.dataset.action === 'minus') {
-        counter.innerText === '0' ? counter.innerText = 0 : --counter.innerText
+        counter.innerText === '1' ? counter.innerText = 1 : --counter.innerText
     } 
 
     if(event.target.dataset.action === 'plus') {
