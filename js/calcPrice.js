@@ -2,6 +2,7 @@ function calcCartPriceAndDelivery() {
     const cartItems = document.querySelectorAll('.cart-item')
     const totalpriceEl = document.querySelector('.total-price')
     const deliveryCost = document.querySelector('.delivery-cost')
+    const deliveryCostInfo = document.querySelector('.delivery-cost-info')
     const cartDelivery = document.querySelector('.cart-delivery')
     let totalPrice = 0
 
@@ -23,9 +24,11 @@ function calcCartPriceAndDelivery() {
 
     if(totalPrice >= 600) {
         deliveryCost.classList.add('free')
+        deliveryCostInfo.classList.add('none')
         deliveryCost.innerText = 'бесплатно'
     } else {
         deliveryCost.classList.remove('free')
+        deliveryCostInfo.classList.remove('none')
         deliveryCost.innerText = '120 ₽'
     }
 }
