@@ -10,9 +10,9 @@ window.addEventListener('click', event => {
             --counter.innerText
         } else if(event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
             event.target.closest('.cart-item').remove()
-            
+
             toggleCartStatus()
-            calcCartPrice()
+            calcCartPriceAndDelivery()
         }
     } 
 
@@ -21,6 +21,6 @@ window.addEventListener('click', event => {
     } 
 
     if(event.target.hasAttribute('data-action') && event.target.closest('.cart-wrapper')) {
-        calcCartPrice()
+        calcCartPriceAndDelivery()
     }
 })
