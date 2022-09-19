@@ -6,18 +6,21 @@ window.addEventListener('click', event => {
     }
 
     if(event.target.dataset.action === 'minus') {
-        if(event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
-            event.target.closest('.cart-item').remove()
-        }
-
         if(parseInt(counter.innerText) > 1) {
             --counter.innerText
         } else if(event.target.closest('.cart-wrapper') && parseInt(counter.innerText) === 1) {
             event.target.closest('.cart-item').remove()
+            
+            toggleCartStatus()
+            calcCartPrice()
         }
     } 
 
     if(event.target.dataset.action === 'plus') {
         ++counter.innerText
     } 
+
+    if(event.target.hasAttribute('data-action') && event.target.closest('.cart-wrapper')) {
+        calcCartPrice()
+    }
 })
